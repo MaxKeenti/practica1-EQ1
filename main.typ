@@ -2,7 +2,6 @@
 
 #let integrantes = (
   "Gonzalez Calzada Maximiliano",
-  "giovani",
   "Sotelo Jiménez Mildred Joana",
   "Tapia Hernández Belinda",
 )
@@ -27,6 +26,7 @@
 #set text(
   font: "ITC Avant Garde Gothic",
   lang: "es",
+  weight: "semibold",
 )
 
 #set page(
@@ -46,6 +46,10 @@
 #set list(indent: 1.5em)
 #v(1cm)
 
+#set align(center)
+#title("ARMADO DE CABLES DE RED STRAIGHT THROUGH Y CROSSOVER")
+#set align(left)
+
 = Calificación y observaciones
 #v(3cm)
 
@@ -55,7 +59,7 @@ Armar un cable o directo (Straight Through) UTP CAT. 5e y un cable cruzado (cros
 = Consideraciones Teóricas
 == Investigar la configuración ANSI/EIA/TIA 568A y 568B.
 
-Las normas T568A y T568B son estándares de cableado para conectores RJ45. La diferencia principal radica en la posición de los pares naranja y verde.
+Las normas T568A y T568B son estándares de cableado para conectores RJ45 @wikipedia_ansi. La diferencia principal radica en la posición de los pares naranja y verde @flukenetworks_568.
 
 === T568A:
 - Pin 1: Blanco/Verde
@@ -79,7 +83,7 @@ Las normas T568A y T568B son estándares de cableado para conectores RJ45. La di
 
 == Explique la configuración de ambas normas, describiendo la función de cada color de los pares trenzados.
 
-En redes Ethernet 10/100Base-T, solo se utilizan dos pares (4 hilos) para la comunicación: uno para transmitir (Tx) y otro para recibir (Rx).
+En redes Ethernet 10/100Base-T, solo se utilizan dos pares (4 hilos) para la comunicación: uno para transmitir (Tx) y otro para recibir (Rx) @techtarget.
 
 - *Pines 1 y 2 (Tx):* Se utilizan para la transmisión de datos.
   - En T568A, corresponde al par Verde.
@@ -91,7 +95,7 @@ En redes Ethernet 10/100Base-T, solo se utilizan dos pares (4 hilos) para la com
 
 == Explique la razón por la cual los pares se encuentran cruzados en un cable crossover.
 
-Un cable cruzado (Crossover) se utiliza para conectar dispositivos del mismo tipo (ej. PC a PC, Switch a Switch sin Auto-MDIX). Esto es necesario porque ambos dispositivos intentan transmitir por los pines 1 y 2, y recibir por los pines 3 y 6. Si se usara un cable directo, la transmisión de uno chocaría con la transmisión del otro (Tx con Tx).
+Un cable cruzado (Crossover) se utiliza para conectar dispositivos del mismo tipo (ej. PC a PC, Switch a Switch sin Auto-MDIX). Esto es necesario porque ambos dispositivos intentan transmitir por los pines 1 y 2, y recibir por los pines 3 y 6. Si se usara un cable directo, la transmisión de uno chocaría con la transmisión del otro (Tx con Tx) @techtarget.
 
 El cruce conecta los pines de transmisión (Tx) de un extremo con los pines de recepción (Rx) del otro extremo:
 - Pin 1 (Tx) <-> Pin 3 (Rx)
@@ -101,7 +105,7 @@ Esto se logra configurando un extremo con la norma T568A y el otro con la norma 
 
 == ¿Cuantas categorías de cable UTP existen? Explique las aplicaciones de cada categoría.
 
-Existen varias categorías, siendo las más comunes actualmente:
+Existen varias categorías, siendo las más comunes actualmente @telco_data_categories:
 
 - *Cat 5e (Enhanced):* Soporta velocidades de hasta 1 Gbps (Gigabit Ethernet) a 100 MHz. Es el estándar mínimo para redes domésticas y de oficina actuales.
 - *Cat 6:* Soporta hasta 1 Gbps a 100 metros y 10 Gbps a distancias cortas (hasta 55 metros). Frecuencia de 250 MHz. Ideal para oficinas con mayor tráfico de datos.
@@ -120,21 +124,123 @@ Existen varias categorías, siendo las más comunes actualmente:
 - Tester de continuidad para RJ45
 - Crimpadora (ponchadora) para cable RJ45
 
-=== Pasos
-+ Para construir un cable de conexión directa de acuerdo a la configuración T568-A, corte un trozo de cable de par trenzado no blindado Cat. 5e o superior de una longitud de 1.0 metros.
-+ Retire 3 cm. de la protección plástica de uno de los extremos del cable UTP.
-+ Sostenga el cable, destrence y ordene los pares de hilos de modo que cumplan con el diagrama de color del cableado T568-B.
-+ Aplane, enderece y haga coincidir los hilos, luego recórtelos en línea recta alrededor de 1.20 cm. a 1.90 cm. del borde de la protección plástica del UTP.
-+ Coloque un conector RJ-45 en el extremo del cable, con la lengüeta hacia abajo.
-+ Empuje suavemente los hilos dentro del conector hasta que pueda visualizar las puntas de cobre de éstos a través del extremo superior del conector. Asegúrese de que el forro plástico del cable también este dentro del conector aprox. 0.5 cms. y de que todos los hilos estén en el orden correcto de acuerdo a la norma.
-+ Utilice las pinzas para ponchado y apriete el conector con suficiente fuerza como para forzar los contactos a través del aislamiento en los hilos, completando así el camino conductor.
-+ Repita los pasos 2 al 7 para construir el otro extremo del cable de conexión straight -through con la configuración T568-B.
-+ Repita los pasos 2 al 9 para el otro tramo de cable UPT, pero ahora para la construcción de un cable de conexión crossover, utilizando la configuración T568-B en un extremo y para el otro la configuración T568-A.
-+ Finalmente pruebe los cables terminados empleando el analizador de continuidad ethernet.
-+ Otra forma de probar los cables y en el caso de no contar con un analizador de continuidad, es empleando un multímetro midiendo la continuidad en cada uno de los hilos del par trenzado.
-+ En las pruebas de continuidad del multímetro o tester; si falla una conexión, el cable estará mal construido, por lo que tendrá que rehacerse nuevamente.
-+ Bibliografía en formato APA.
-+ Incorpore una fotografía de los integrantes del equipo para evidencia que se presentaron a la práctica.
+== Pasos
+=== Corte del cable
+Para construir un cable de conexión directa de acuerdo a la configuración T568-A, corte un trozo de cable de par trenzado no blindado Cat. 5e o superior de una longitud de 1.0 metros.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Corte del cable
+  ],
+)
+
+=== Retiro de protección
+Retire 3 cm. de la protección plástica de uno de los extremos del cable UTP.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Retiro de protección
+  ],
+)
+
+=== Ordenamiento de pares
+Sostenga el cable, destrence y ordene los pares de hilos de modo que cumplan con el diagrama de color del cableado T568-B.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Ordenamiento de pares
+  ],
+)
+
+=== Corte de hilos
+Aplane, enderece y haga coincidir los hilos, luego recórtelos en línea recta alrededor de 1.20 cm. a 1.90 cm. del borde de la protección plástica del UTP.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Corte de hilos
+  ],
+)
+
+=== Colocación del conector
+Coloque un conector RJ-45 en el extremo del cable, con la lengüeta hacia abajo.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Colocación del conector
+  ],
+)
+
+=== Verificación visual
+Empuje suavemente los hilos dentro del conector hasta que pueda visualizar las puntas de cobre de éstos a través del extremo superior del conector. Asegúrese de que el forro plástico del cable también este dentro del conector aprox. 0.5 cms. y de que todos los hilos estén en el orden correcto de acuerdo a la norma.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Verificación visual
+  ],
+)
+
+=== Ponchado
+Utilice las pinzas para ponchado y apriete el conector con suficiente fuerza como para forzar los contactos a través del aislamiento en los hilos, completando así el camino conductor.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Ponchado
+  ],
+)
+
+=== Segundo extremo
+Repita los pasos 2 al 7 para construir el otro extremo del cable de conexión straight -through con la configuración T568-B.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Segundo extremo
+  ],
+)
+
+=== Cable cruzado
+Repita los pasos 2 al 9 para el otro tramo de cable UPT, pero ahora para la construcción de un cable de conexión crossover, utilizando la configuración T568-B en un extremo y para el otro la configuración T568-A.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Cable cruzado
+  ],
+)
+
+=== Prueba con analizador
+Finalmente pruebe los cables terminados empleando el analizador de continuidad ethernet.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Prueba con analizador
+  ],
+)
+
+=== Prueba con multímetro
+Otra forma de probar los cables y en el caso de no contar con un analizador de continuidad, es empleando un multímetro midiendo la continuidad en cada uno de los hilos del par trenzado.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Prueba con multímetro
+  ],
+)
+
+=== Verificación de fallas
+En las pruebas de continuidad del multímetro o tester; si falla una conexión, el cable estará mal construido, por lo que tendrá que rehacerse nuevamente.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Verificación de fallas
+  ],
+)
+
+=== Evidencia fotográfica
+Incorpore una fotografía de los integrantes del equipo para evidencia que se presentaron a la práctica.
+#figure(
+  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  caption: [
+    Evidencia fotográfica
+  ],
+)
 
 Realice la práctica y documente para cada pregunta o ejercicio con fotos y capturas de pantallas para todos los puntos e incisos.
 
@@ -147,12 +253,9 @@ De los puntos 4 al 7 y en todos los incisos, deberá incorporarse un esquema, di
 - La práctica se elaborará y se entregará en equipo.
 - Para validar esta práctica todos los alumnos deberán realizarla en tiempo real, durante la clase. (quien no la realice no será sujeto a evaluación).
 - El archivo se nombrará con la siguiente nomenclatura: `Practica1_5CV50_equipo#` Donde \# es el número de equipo.
-- La práctica será enviada al #link("https://drive.google.com/drive/folders/1iqYdutOXSy3LrrVSWxQODwI099cHAFKp?usp=sharing")[_`Drive`_] después de que termine la clase, en formato de Word y PDF.
+- La práctica será enviada al _Drive_ @drive_folder después de que termine la clase, el archivo fuente @github_repo y PDF.
 - Se debe crear una Carpeta nombrada con el numero de su equipo ejemplo “Equipo 1”.
 - La entrega de la practica es solo durante el tiempo de clase.
 - Si no se cumple con algún requisito u observaciones antes señaladas, afectará en la calificación en la práctica.
 
-= Bibliografía
-
-#link("https://drive.google.com/drive/folders/1iqYdutOXSy3LrrVSWxQODwI099cHAFKp?usp=sharing")[_`Drive`_]
-#link("https://github.com/MaxKeenti/practica1-EQ1.git")[_`Repositorio GitHub con archivo de la práctica`_]
+#bibliography("media/bibliografia.bib", style: "apa")
