@@ -128,7 +128,7 @@ Existen varias categorías, siendo las más comunes actualmente @telco_data_cate
 === Corte del cable
 Para construir un cable de conexión directa de acuerdo a la configuración T568-A, corte un trozo de cable de par trenzado no blindado Cat. 5e o superior de una longitud de 1.0 metros.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto1.jpg", width: 25%),
   caption: [
     Corte del cable
   ],
@@ -137,7 +137,7 @@ Para construir un cable de conexión directa de acuerdo a la configuración T568
 === Retiro de protección
 Retire 3 cm. de la protección plástica de uno de los extremos del cable UTP.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto2.jpg", width: 25%),
   caption: [
     Retiro de protección
   ],
@@ -146,7 +146,13 @@ Retire 3 cm. de la protección plástica de uno de los extremos del cable UTP.
 === Ordenamiento de pares
 Sostenga el cable, destrence y ordene los pares de hilos de modo que cumplan con el diagrama de color del cableado T568-B.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/diagrama1.jpg", width: 25%),
+  caption: [
+    Diagrama T568-B
+  ],
+)
+#figure(
+  image("media/foto3.jpg", width: 25%),
   caption: [
     Ordenamiento de pares
   ],
@@ -155,7 +161,7 @@ Sostenga el cable, destrence y ordene los pares de hilos de modo que cumplan con
 === Corte de hilos
 Aplane, enderece y haga coincidir los hilos, luego recórtelos en línea recta alrededor de 1.20 cm. a 1.90 cm. del borde de la protección plástica del UTP.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto4.jpg", width: 25%),
   caption: [
     Corte de hilos
   ],
@@ -164,7 +170,7 @@ Aplane, enderece y haga coincidir los hilos, luego recórtelos en línea recta a
 === Colocación del conector
 Coloque un conector RJ-45 en el extremo del cable, con la lengüeta hacia abajo.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto5.jpg", width: 25%),
   caption: [
     Colocación del conector
   ],
@@ -173,7 +179,7 @@ Coloque un conector RJ-45 en el extremo del cable, con la lengüeta hacia abajo.
 === Verificación visual
 Empuje suavemente los hilos dentro del conector hasta que pueda visualizar las puntas de cobre de éstos a través del extremo superior del conector. Asegúrese de que el forro plástico del cable también este dentro del conector aprox. 0.5 cms. y de que todos los hilos estén en el orden correcto de acuerdo a la norma.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto6.jpg", width: 25%),
   caption: [
     Verificación visual
   ],
@@ -182,7 +188,7 @@ Empuje suavemente los hilos dentro del conector hasta que pueda visualizar las p
 === Ponchado
 Utilice las pinzas para ponchado y apriete el conector con suficiente fuerza como para forzar los contactos a través del aislamiento en los hilos, completando así el camino conductor.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto7.jpg", width: 25%),
   caption: [
     Ponchado
   ],
@@ -191,7 +197,7 @@ Utilice las pinzas para ponchado y apriete el conector con suficiente fuerza com
 === Segundo extremo
 Repita los pasos 2 al 7 para construir el otro extremo del cable de conexión straight -through con la configuración T568-B.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto8.jpg", width: 25%),
   caption: [
     Segundo extremo
   ],
@@ -200,7 +206,7 @@ Repita los pasos 2 al 7 para construir el otro extremo del cable de conexión st
 === Cable cruzado
 Repita los pasos 2 al 9 para el otro tramo de cable UPT, pero ahora para la construcción de un cable de conexión crossover, utilizando la configuración T568-B en un extremo y para el otro la configuración T568-A.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto9.jpg", width: 25%),
   caption: [
     Cable cruzado
   ],
@@ -209,34 +215,22 @@ Repita los pasos 2 al 9 para el otro tramo de cable UPT, pero ahora para la cons
 === Prueba con analizador
 Finalmente pruebe los cables terminados empleando el analizador de continuidad ethernet.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto10.jpg", width: 25%),
   caption: [
     Prueba con analizador
   ],
 )
-
-=== Prueba con multímetro
-Otra forma de probar los cables y en el caso de no contar con un analizador de continuidad, es empleando un multímetro midiendo la continuidad en cada uno de los hilos del par trenzado.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto13.jpg", width: 25%),
   caption: [
-    Prueba con multímetro
-  ],
-)
-
-=== Verificación de fallas
-En las pruebas de continuidad del multímetro o tester; si falla una conexión, el cable estará mal construido, por lo que tendrá que rehacerse nuevamente.
-#figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
-  caption: [
-    Verificación de fallas
+    Prueba con analizador
   ],
 )
 
 === Evidencia fotográfica
 Incorpore una fotografía de los integrantes del equipo para evidencia que se presentaron a la práctica.
 #figure(
-  image("media/logos/UPIICSA_Logo.svg", width: 5%),
+  image("media/foto11.jpg", width: 25%),
   caption: [
     Evidencia fotográfica
   ],
