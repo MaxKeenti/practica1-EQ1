@@ -11,7 +11,7 @@
 Icon
 
 # compiled PDF's
-.pdf
+*.pdf
 
 # Thumbnails
 ._*
