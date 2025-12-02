@@ -1,42 +1,38 @@
 #import "portada-template.typ": portada
 
 #let integrantes = (
-  "Conda Trujillo José Manuel",
-  "Delgado Vázquez Dulce Ivonne",
-  "Flores Roa Jorge Alejandro",
   "Gonzalez Calzada Maximiliano",
-  "Pérez Acuña Jorge Ysmael",
-  "Ramírez García Iossef Alejandro",
-  "Salazar Carmona Linette",
-  "Teodoro Rosales Mauricio"
+  "giovani",
+  "Sotelo Jiménez Mildred Joana",
+  "Tapia Hernández Belinda",
 )
 
 #portada(
-  "CARRERA",
+  "ACADEMIA",
   "MATERIA",
   "PRÁCTICA 1",
-  "SECUENCIA",
+  "SECUENCIA Y PERIODO",
   "INTEGRANTES",
   "PROFESORA",
-  "FECHA",
-  "Ingeniería en Informática",
+  "FECHA DE ENTREGA",
+  "Redes",
   "Comunicación de Datos",
   "ARMADO DE CABLES DE RED STRAIGHT THROUGH Y CROSSOVER",
-  "5CV50",
+  "5CV50 2026-1",
   integrantes,
   "Nancy Lorena Ortiz Castrejón",
-  "2 de diciembre de 2025"
+  "2 de diciembre de 2025",
 )
 
 #set text(
   font: "ITC Avant Garde Gothic",
-  lang: "es"
+  lang: "es",
 )
 
 #set page(
   paper: "us-letter",
   margin: (left: 3cm, top: 2.5cm, right: 2.5cm, bottom: 2.5cm),
-  numbering: "1"
+  numbering: "1",
 )
 
 #outline(
@@ -50,27 +46,81 @@
 #set list(indent: 1.5em)
 #v(1cm)
 
+= Calificación y observaciones
+#v(3cm)
+
 = Objetivo
 Armar un cable o directo (Straight Through) UTP CAT. 5e y un cable cruzado (crossover) UTP CAT. 5e según la norma ANSI/EIA/TIA 568A y 568B.
 
 = Consideraciones Teóricas
-+ Investigar la configuración ANSI/EIA/TIA 568A y 568B.
-+ Explique la configuración de ambas normas, describiendo la función de cada color de los pares trenzados.
-+ Explique la razón por la cual los pares se encuentran cruzados en un cable crossover.
-+ ¿Cuantas categorías de cable UTP existen? Explique las aplicaciones de cada categoría.
+== Investigar la configuración ANSI/EIA/TIA 568A y 568B.
+
+Las normas T568A y T568B son estándares de cableado para conectores RJ45. La diferencia principal radica en la posición de los pares naranja y verde.
+
+=== T568A:
+- Pin 1: Blanco/Verde
+- Pin 2: _`Verde`_
+- Pin 3: Blanco/Naranja
+- Pin 4: Azul
+- Pin 5: Blanco/Azul
+- Pin 6: _`Naranja`_
+- Pin 7: Blanco/Café
+- Pin 8: Café
+
+=== T568B:
+- Pin 1: Blanco/Naranja
+- Pin 2: _`Naranja`_
+- Pin 3: Blanco/Verde
+- Pin 4: Azul
+- Pin 5: Blanco/Azul
+- Pin 6: _`Verde`_
+- Pin 7: Blanco/Café
+- Pin 8: Café
+
+== Explique la configuración de ambas normas, describiendo la función de cada color de los pares trenzados.
+
+En redes Ethernet 10/100Base-T, solo se utilizan dos pares (4 hilos) para la comunicación: uno para transmitir (Tx) y otro para recibir (Rx).
+
+- *Pines 1 y 2 (Tx):* Se utilizan para la transmisión de datos.
+  - En T568A, corresponde al par Verde.
+  - En T568B, corresponde al par Naranja.
+- *Pines 3 y 6 (Rx):* Se utilizan para la recepción de datos.
+  - En T568A, corresponde al par Naranja.
+  - En T568B, corresponde al par Verde.
+- *Pines 4, 5, 7 y 8:* No se utilizan en 10/100Base-T, pero son necesarios para Gigabit Ethernet (1000Base-T) y PoE (Power over Ethernet), donde se usan los cuatro pares.
+
+== Explique la razón por la cual los pares se encuentran cruzados en un cable crossover.
+
+Un cable cruzado (Crossover) se utiliza para conectar dispositivos del mismo tipo (ej. PC a PC, Switch a Switch sin Auto-MDIX). Esto es necesario porque ambos dispositivos intentan transmitir por los pines 1 y 2, y recibir por los pines 3 y 6. Si se usara un cable directo, la transmisión de uno chocaría con la transmisión del otro (Tx con Tx).
+
+El cruce conecta los pines de transmisión (Tx) de un extremo con los pines de recepción (Rx) del otro extremo:
+- Pin 1 (Tx) <-> Pin 3 (Rx)
+- Pin 2 (Tx) <-> Pin 6 (Rx)
+
+Esto se logra configurando un extremo con la norma T568A y el otro con la norma T568B.
+
+== ¿Cuantas categorías de cable UTP existen? Explique las aplicaciones de cada categoría.
+
+Existen varias categorías, siendo las más comunes actualmente:
+
+- *Cat 5e (Enhanced):* Soporta velocidades de hasta 1 Gbps (Gigabit Ethernet) a 100 MHz. Es el estándar mínimo para redes domésticas y de oficina actuales.
+- *Cat 6:* Soporta hasta 1 Gbps a 100 metros y 10 Gbps a distancias cortas (hasta 55 metros). Frecuencia de 250 MHz. Ideal para oficinas con mayor tráfico de datos.
+- *Cat 6a (Augmented):* Soporta 10 Gbps a 100 metros. Frecuencia de 500 MHz. Tiene mejor aislamiento contra diafonía (crosstalk). Usado en centros de datos y redes corporativas de alto rendimiento.
+- *Cat 7:* Soporta 10 Gbps a 100 metros con frecuencias de hasta 600 MHz. Cada par está blindado individualmente. Usado en aplicaciones industriales y centros de datos con alta interferencia.
+- *Cat 8:* Soporta 25 Gbps o 40 Gbps a distancias cortas (hasta 30 metros). Frecuencia de hasta 2000 MHz. Diseñado principalmente para enlaces entre servidores en centros de datos.
 
 = Desarrollo de la práctica
 
 == Configuración del cableado T568-A y T568-B
 
-== Material a utilizar
+=== Material a utilizar
 - 2 cables UTP CAT 5e o CAT 6 de 1.0 mts.
 - 6 conectores RJ45 para el tipo y categoría de cable que eligió.
 - Pela cables de red
 - Tester de continuidad para RJ45
 - Crimpadora (ponchadora) para cable RJ45
 
-== Pasos
+=== Pasos
 + Para construir un cable de conexión directa de acuerdo a la configuración T568-A, corte un trozo de cable de par trenzado no blindado Cat. 5e o superior de una longitud de 1.0 metros.
 + Retire 3 cm. de la protección plástica de uno de los extremos del cable UTP.
 + Sostenga el cable, destrence y ordene los pares de hilos de modo que cumplan con el diagrama de color del cableado T568-B.
@@ -97,7 +147,12 @@ De los puntos 4 al 7 y en todos los incisos, deberá incorporarse un esquema, di
 - La práctica se elaborará y se entregará en equipo.
 - Para validar esta práctica todos los alumnos deberán realizarla en tiempo real, durante la clase. (quien no la realice no será sujeto a evaluación).
 - El archivo se nombrará con la siguiente nomenclatura: `Practica1_5CV50_equipo#` Donde \# es el número de equipo.
-- La práctica será enviada al #link("https://drive.google.com/drive/folders/1iqYdutOXSy3LrrVSWxQODwI099cHAFKp?usp=sharing")[_Drive_] después de que termine la clase, en formato de Word y PDF.
+- La práctica será enviada al #link("https://drive.google.com/drive/folders/1iqYdutOXSy3LrrVSWxQODwI099cHAFKp?usp=sharing")[_`Drive`_] después de que termine la clase, en formato de Word y PDF.
 - Se debe crear una Carpeta nombrada con el numero de su equipo ejemplo “Equipo 1”.
 - La entrega de la practica es solo durante el tiempo de clase.
 - Si no se cumple con algún requisito u observaciones antes señaladas, afectará en la calificación en la práctica.
+
+= Bibliografía
+
+#link("https://drive.google.com/drive/folders/1iqYdutOXSy3LrrVSWxQODwI099cHAFKp?usp=sharing")[_`Drive`_]
+#link("https://github.com/MaxKeenti/practica1-EQ1.git")[_`Repositorio GitHub con archivo de la práctica`_]
